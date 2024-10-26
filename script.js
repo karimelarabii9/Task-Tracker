@@ -10,6 +10,7 @@ inputBox.addEventListener("keydown", function (event) {
       alert("You must write atleast one task");
     } else {
       addTasks();
+      inputBox.blur(); // Removes focus and may reset zoom
     }
   }
 });
@@ -18,6 +19,7 @@ button.onclick = function () {
     alert("You must write atleast one task");
   } else {
     addTasks();
+    inputBox.blur(); // Removes focus and may reset zoom
   }
 };
 
@@ -30,6 +32,7 @@ listContainer.addEventListener("click", function (event) {
     e.classList.toggle("checked");
   } else if (e.className === "bx bxs-edit") {
     editTasks(e);
+    inputBox.blur(); // Removes focus and may reset zoom
   }
   saveTask();
 });
@@ -75,6 +78,7 @@ function editTasks(event) {
       }
       li.firstChild.replaceWith(updatedText);
       saveTask();
+      inputBox.blur(); // Removes focus and may reset zoom
     }
   });
 }
